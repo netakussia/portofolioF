@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="Portfolio de Pleşca Nicolai, étudiant en réseaux informatiques et systèmes.">
+  <title>Pleşca Nicolai — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #f8fafc; }
+    section[id] { scroll-margin-top: 6rem; }
+    .project-image { background: linear-gradient(135deg, #bfdbfe, #dbeafe 52%, #cffafe); }
+    .project-image img { transition: transform 500ms ease; }
+    .project-card:hover .project-image img { transform: scale(1.04); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+    <nav aria-label="Navigation principale" class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+      <a href="#accueil" class="text-base font-bold tracking-normal text-slate-950">Pleşca <span class="text-blue-600">Nicolai</span></a>
+      <div class="flex items-center gap-5 text-sm font-medium sm:gap-8">
+        <a class="text-slate-600 transition hover:text-blue-600" href="#apropos">À propos</a>
+        <a class="text-slate-600 transition hover:text-blue-600" href="#projets">Projets</a>
+        <a class="rounded-full bg-blue-600 px-4 py-2 text-white shadow-sm transition hover:bg-blue-700" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="accueil" class="relative overflow-hidden px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-blue-100/70 blur-3xl"></div>
+      <div class="relative mx-auto max-w-6xl">
+        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-blue-700 shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-blue-500"></span> Portfolio personnel
+        </p>
+        <h1 class="max-w-4xl text-4xl font-bold leading-tight tracking-normal text-slate-950 sm:text-6xl sm:leading-[1.08]">Pleşca Nicolai</h1>
+        <p class="mt-5 max-w-2xl text-xl font-medium text-blue-700 sm:text-2xl">Étudiant en Réseaux Informatiques et Systèmes</p>
+        <p class="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">Bonjour et bienvenue sur mon portfolio ! Je suis passionné par l'architecture réseau, mais ma vie ne se limite pas à la technologie. Découvrez mes projets académiques et mes passions personnelles.</p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a href="#projets" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700">
+            Voir mes projets <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+          </a>
+          <a href="#contact" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700">
+            Me contacter <i class="fa-regular fa-envelope text-sm" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos" class="border-y border-slate-200/80 bg-white px-5 py-16 sm:px-8 sm:py-20">
+      <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-blue-600">À propos</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">Curieux par nature, créatif au quotidien.</h2>
+          <p class="mt-5 max-w-2xl leading-7 text-slate-600">En plus d'étudier les réseaux informatiques et la sécurité, je m'épanouis dans des domaines variés, du développement à la cuisine et au jardinage. J'aime aussi créer des objets de mes propres mains et apprendre en expérimentant.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-3 sm:gap-4">
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center sm:p-6">
+            <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-700"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+            <h3 class="mt-3 text-sm font-semibold text-slate-800">Sécurité</h3>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center sm:p-6">
+            <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-100 text-cyan-700"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+            <h3 class="mt-3 text-sm font-semibold text-slate-800">Code</h3>
+          </div>
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center sm:p-6">
+            <span class="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700"><i class="fa-solid fa-hammer" aria-hidden="true"></i></span>
+            <h3 class="mt-3 text-sm font-semibold text-slate-800">Fait main</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" class="px-5 py-16 sm:px-8 sm:py-20">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-9 flex flex-col justify-between gap-3 sm:mb-11 sm:flex-row sm:items-end">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-widest text-blue-600">Mes projets</p>
+            <h2 class="mt-3 text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">Des idées mises en pratique.</h2>
+          </div>
+          <p class="max-w-md text-sm leading-6 text-slate-500">Des projets qui reflètent mes intérêts, entre technologie, savoir-faire et respect de la nature.</p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="project-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5">
+            <div class="project-image h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Ordinateur portable affichant du code informatique" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-950">Développement de Bots Telegram</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Conception et déploiement de bots personnalisés en Python pour automatiser des tâches et faciliter les interactions sur Telegram.</p>
+              <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">Python</span><span class="rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-700">Automatisation</span><span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Telegram</span></div>
+            </div>
+          </article>
+          <article class="project-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5">
+            <div class="project-image h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Préparation de plats dans une cuisine lumineuse" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-950">Art Culinaire &amp; Gastronomie</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Exploration de la cuisine complexe, préparation de spécialités traditionnelles comme les plăcinte et de plats élaborés tels que le canard au miel.</p>
+              <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700">Cuisine</span><span class="rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700">Tradition</span><span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Créativité</span></div>
+            </div>
+          </article>
+          <article class="project-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5 md:col-span-2 lg:col-span-1">
+            <div class="project-image h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Jeunes plants cultivés dans un jardin" loading="lazy" class="h-full w-full object-cover" onerror="this.style.display='none'">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-950">Jardinage &amp; Éco-projets</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Gestion d'une serre domestique, culture biologique de légumes et installation de systèmes d'irrigation goutte-à-goutte optimisés.</p>
+              <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">Culture biologique</span><span class="rounded-full bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">Irrigation</span><span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Écologie</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="border-t border-slate-200 bg-white px-5 py-16 sm:px-8 sm:py-20">
+      <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-blue-600">Contact</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">Faisons connaissance.</h2>
+          <p class="mt-5 max-w-md leading-7 text-slate-600">N'hésitez pas à me contacter pour échanger ou collaborer !</p>
+          <div class="mt-7 flex gap-3">
+            <a href="#" aria-label="GitHub" class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Telegram" class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Courriel" class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <form id="contact-form" class="grid gap-4" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="grid gap-2 text-sm font-medium text-slate-700">Nom
+              <input name="nom" type="text" autocomplete="name" required class="min-h-12 rounded-lg border border-slate-300 bg-slate-50 px-4 text-base outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100">
+            </label>
+            <label class="grid gap-2 text-sm font-medium text-slate-700">Email
+              <input name="email" type="email" autocomplete="email" required class="min-h-12 rounded-lg border border-slate-300 bg-slate-50 px-4 text-base outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100">
+            </label>
+          </div>
+          <label class="grid gap-2 text-sm font-medium text-slate-700">Message
+            <textarea name="message" rows="5" required class="resize-y rounded-lg border border-slate-300 bg-slate-50 px-4 py-3 text-base outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"></textarea>
+          </label>
+          <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <button type="submit" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
+              Envoyer <i class="fa-solid fa-paper-plane text-xs" aria-hidden="true"></i>
+            </button>
+            <p id="form-message" role="status" aria-live="polite" class="hidden text-sm font-medium text-emerald-700"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 px-5 py-6 text-center text-sm text-slate-500">
+    © 2026 Pleşca Nicolai. Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!this.reportValidity()) return;
+      const confirmation = document.getElementById('form-message');
+      confirmation.textContent = 'Merci ! Votre message a bien été envoyé.';
+      confirmation.classList.remove('hidden');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
