@@ -14,9 +14,28 @@
   .grad-2{background:linear-gradient(135deg,#f59e0b,#ef4444)}
   .grad-3{background:linear-gradient(135deg,#059669,#84cc16)}
   .blob{background:radial-gradient(circle at 30% 30%,#dbeafe,transparent 60%),radial-gradient(circle at 80% 70%,#d1fae5,transparent 55%)}
+  .hero-bg{position:absolute;inset:0;pointer-events:none}
+  .layer{position:absolute;will-change:transform}
+  .orb{border-radius:9999px;filter:blur(42px);opacity:.55}
+  .grid-bg{inset:-10%;background-image:linear-gradient(rgba(37,99,235,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.09) 1px,transparent 1px);background-size:40px 40px}
+  .float{display:block;animation:fl 5s ease-in-out infinite}
+  @keyframes fl{50%{transform:translateY(-16px) rotate(8deg)}}
+  .shimmer-text{background:linear-gradient(90deg,#0f172a,#2563eb,#10b981,#0f172a);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 5s linear infinite}
+  @keyframes sh{to{background-position:-300% 0}}
+  .glow{animation:pulse 2.2s ease-out infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.55)}100%{box-shadow:0 0 0 30px rgba(37,99,235,0)}}
+  .reveal{opacity:0;transform:translateY(46px) scale(.95);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+  .reveal.in{opacity:1;transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+  .reveal.done{transition:transform .12s linear,box-shadow .3s;transition-delay:0s}
+  .shine{position:relative;overflow:hidden}
+  .shine::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-100%);animation:sw 3s infinite}
+  @keyframes sw{to{transform:translateX(100%)}}
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#2563eb,#10b981);z-index:50}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div id="bar"></div>
 
 <header class="fixed top-0 inset-x-0 z-20 bg-white/80 backdrop-blur border-b border-slate-200" style="padding-top:env(safe-area-inset-top,0px)">
   <nav class="max-w-5xl mx-auto flex items-center justify-between px-5 h-14">
@@ -30,13 +49,23 @@
 </header>
 
 <main>
-  <section id="accueil" class="blob pt-28 pb-20 px-5">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="mx-auto w-24 h-24 rounded-full grad-1 flex items-center justify-center text-white text-4xl shadow-lg mb-6">
+  <section id="accueil" class="blob relative overflow-hidden pt-28 pb-24 px-5">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="layer grid-bg" data-depth="0.1"></div>
+      <div class="layer orb" data-depth="0.3" style="width:260px;height:260px;background:#60a5fa;top:4%;left:-70px"></div>
+      <div class="layer orb" data-depth="0.55" style="width:220px;height:220px;background:#34d399;top:42%;right:-70px"></div>
+      <div class="layer orb" data-depth="0.2" style="width:190px;height:190px;background:#fbbf24;bottom:-50px;left:28%"></div>
+      <div class="layer" data-depth="0.9" style="top:16%;right:10%"><span class="float text-blue-500/70 text-3xl"><i class="fa-solid fa-server"></i></span></div>
+      <div class="layer" data-depth="0.7" style="top:34%;left:7%"><span class="float text-emerald-500/70 text-2xl" style="animation-delay:-1.5s"><i class="fa-solid fa-lock"></i></span></div>
+      <div class="layer" data-depth="1.1" style="bottom:14%;right:18%"><span class="float text-sky-500/70 text-3xl" style="animation-delay:-3s"><i class="fa-solid fa-terminal"></i></span></div>
+      <div class="layer" data-depth="0.6" style="bottom:22%;left:12%"><span class="float text-orange-500/70 text-2xl" style="animation-delay:-2s"><i class="fa-solid fa-wifi"></i></span></div>
+    </div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center">
+      <div class="mx-auto w-24 h-24 rounded-full grad-1 glow flex items-center justify-center text-white text-4xl shadow-lg mb-6">
         <i class="fa-solid fa-network-wired"></i>
       </div>
       <p class="text-blue-600 font-semibold tracking-wide uppercase text-xs mb-3">Portfolio</p>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">Pleşca Nicolai</h1>
+      <h1 class="shimmer-text text-4xl sm:text-6xl font-extrabold tracking-tight">Pleşca Nicolai</h1>
       <p class="mt-3 text-lg sm:text-xl text-slate-600 font-medium">Étudiant en Réseaux Informatiques et Systèmes</p>
       <p class="mt-6 text-slate-600 leading-relaxed">Bonjour et bienvenue sur mon portfolio ! Je suis passionné par l'architecture réseau, mais ma vie ne se limite pas à la technologie. Découvrez mes projets académiques et mes passions personnelles.</p>
       <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -141,6 +170,68 @@
     a.remove();
     document.getElementById('ok').classList.remove('hidden');
   });
+</script>
+<script>
+(function () {
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar = document.getElementById('bar');
+  var layers = [].slice.call(document.querySelectorAll('.layer'));
+  var mx = 0, my = 0, tx = 0, ty = 0, sy = 0;
+  function onScroll() {
+    sy = window.scrollY;
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? sy / h * 100 : 0) + '%';
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  if (!rm) {
+    addEventListener('pointermove', function (e) {
+      mx = (e.clientX / innerWidth - 0.5) * 2;
+      my = (e.clientY / innerHeight - 0.5) * 2;
+    });
+    (function frame() {
+      tx += (mx - tx) * 0.08;
+      ty += (my - ty) * 0.08;
+      layers.forEach(function (l) {
+        var d = parseFloat(l.dataset.depth);
+        l.style.transform = 'translate3d(' + (tx * d * 40) + 'px,' + (sy * d * 0.6 + ty * d * 40) + 'px,0)';
+      });
+      requestAnimationFrame(frame);
+    })();
+  }
+  document.querySelectorAll('#accueil a.bg-blue-600, #send').forEach(function (b) { b.classList.add('shine'); });
+  var groups = ['#accueil .max-w-3xl > *', '#apropos .max-w-3xl > *', '#projets h2', 'article', '#contact .max-w-xl > *'];
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var el = en.target;
+      el.classList.add('in');
+      setTimeout(function () { el.classList.add('done'); }, 1100);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12 });
+  groups.forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.setProperty('--d', (i * 0.12) + 's');
+      if (rm) el.classList.add('in'); else io.observe(el);
+    });
+  });
+  if (!rm) {
+    document.querySelectorAll('article').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--ry', ((e.clientX - r.left) / r.width - 0.5) * 16 + 'deg');
+        c.style.setProperty('--rx', ((e.clientY - r.top) / r.height - 0.5) * -16 + 'deg');
+      });
+      c.addEventListener('pointerleave', function () {
+        c.style.setProperty('--rx', '0deg');
+        c.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+})();
 </script>
 </body>
 </html>
